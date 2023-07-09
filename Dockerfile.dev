@@ -1,0 +1,13 @@
+FROM node:16-alpine
+
+WORKDIR '/app'
+
+COPY package.json .
+RUN npm install
+
+COPY . .
+
+CMD ["npm", "run", "start"]
+
+# Docker volume is a placeholder/ reference that points back to the origin of the code
+# Makes a mapping from a folder inside the container to a folder outside the container.
